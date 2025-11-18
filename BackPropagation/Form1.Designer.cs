@@ -44,6 +44,7 @@
             this.input1.Name = "input1";
             this.input1.Size = new System.Drawing.Size(324, 22);
             this.input1.TabIndex = 0;
+            this.input1.TextChanged += new System.EventHandler(this.input1_TextChanged);
             // 
             // input2
             // 

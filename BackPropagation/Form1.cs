@@ -58,7 +58,7 @@ namespace BackPropagation
 
             // Training for AND function
 
-            // 1. the 16-combination of 4-inputs
+            // 16-combination of 4-inputs, separated it from the outputs
             int[,] inputs = new int[,]
             {
                     {0,0,0,0},
@@ -79,6 +79,7 @@ namespace BackPropagation
                     {1,1,1,1},
             };
 
+            // Corresponding outputs for AND function
             double[] outputs = new double[]
             {
                 0,0,0,0,
@@ -89,7 +90,7 @@ namespace BackPropagation
             };
 
 
-            // 2. Train the model as we loop through the 16 combinations
+            // Train the model as we loop through the 16 combinations
             for (int epoch = 0; epoch < 100; epoch++) { 
                 for (int i = 0; i < 16; i++) 
                 {
@@ -124,5 +125,7 @@ namespace BackPropagation
 
             outputN.Text = "" + nn.getOuputData(0); // convert to string
         }
+
+     
     }
 }
