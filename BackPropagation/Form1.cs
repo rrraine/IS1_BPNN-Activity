@@ -24,7 +24,7 @@ namespace BackPropagation
         private void createNeuralNetBtnClick(object sender, EventArgs e)
         {
             // nn = new NeuralNet(2,100,1); // for OR function
-            nn = new NeuralNet(4, 300, 1); // for AND function
+            nn = new NeuralNet(4, 100, 1); // for AND function
                              // ^ input, hidden, output neurons
         }
 
@@ -57,52 +57,169 @@ namespace BackPropagation
             */
 
             // Training for AND function
+            for (int x = 0; x < 2000; x++)
+            {
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 0.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 0.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 0.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 0.0);
+                nn.setDesiredOutput(0, 0.0);
+                nn.learn();
+
+                nn.setInputs(0, 1.0);
+                nn.setInputs(1, 1.0);
+                nn.setInputs(2, 1.0);
+                nn.setInputs(3, 1.0);
+                nn.setDesiredOutput(0, 1.0);
+                nn.learn();
+            }
+
 
             // 16-combination of 4-inputs, separated it from the outputs
-            int[,] inputs = new int[,]
-            {
-                    {0,0,0,0},
-                    {0,0,0,1},
-                    {0,0,1,0},
-                    {0,0,1,1},
-                    {0,1,0,0},
-                    {0,1,0,1},
-                    {0,1,1,0},
-                    {0,1,1,1},
-                    {1,0,0,0},
-                    {1,0,0,1},
-                    {1,0,1,0},
-                    {1,0,1,1},
-                    {1,1,0,0},
-                    {1,1,0,1},
-                    {1,1,1,0},
-                    {1,1,1,1},
-            };
+            /* double[,] inputs = new double[,]
+             {
+                 {0,0,0,0}, {0,0,0,1}, {0,0,1,0}, {0,0,1,1},
+                 {0,1,0,0}, {0,1,0,1}, {0,1,1,0}, {0,1,1,1},
+                 {1,0,0,0}, {1,0,0,1}, {1,0,1,0}, {1,0,1,1},
+                 {1,1,0,0}, {1,1,0,1}, {1,1,1,0}, {1,1,1,1}
+             };
 
-            // Corresponding outputs for AND function
-            double[] outputs = new double[]
-            {
-                0,0,0,0,
-                0,0,0,0,
-                0,0,0,0,
-                0,0,0,
-                1   // Only the last case (1111) is 1
-            };
+             // Corresponding outputs for AND function
+             double[] outputs = new double[]
+             {
+                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1  // Only last case (1,1,1,1) = 1
+             };
 
 
-            // Train the model as we loop through the 16 combinations
-            for (int epoch = 0; epoch < 100; epoch++) { 
-                for (int i = 0; i < 16; i++) 
-                {
-                    nn.setInputs(0, inputs[i, 0]);
-                    nn.setInputs(1, inputs[i, 1]);
-                    nn.setInputs(2, inputs[i, 2]);
-                    nn.setInputs(3, inputs[i, 3]);
+             // Train the model as we loop through the 16 combinations
+             //for (int epoch = 0; epoch < 2000; epoch++)
+             //{
+             //    for (int i = 0; i < 16; i++)
+             //    {
+             //        nn.setInputs(0, inputs[i, 0]);
+             //        nn.setInputs(1, inputs[i, 1]);
+             //        nn.setInputs(2, inputs[i, 2]);
+             //        nn.setInputs(3, inputs[i, 3]);
 
-                    nn.setDesiredOutput(0, outputs[i]);
-                    nn.learn();
-                }
-            }
+             //        nn.setDesiredOutput(0, outputs[i]);
+             //        nn.learn();
+             //    }
+             //}
+             for (int epoch = 0; epoch < 5000; epoch++)
+             {
+                 for (int i = 0; i < 16; i++)
+                 {
+                     // Set inputs
+                     for (int j = 0; j < 4; j++)
+                     {
+                         nn.setInputs(j, inputs[i, j]);
+                     }
+
+                     // Set desired output
+                     nn.setDesiredOutput(0, outputs[i]);
+
+                     // Train
+                     nn.learn();
+                 }
+             }*/
 
         }
 
